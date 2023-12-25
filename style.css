@@ -1,0 +1,9 @@
+body {
+    background-color: linen;
+}
+
+canvas {
+    border: 10px dashed sienna;
+    display: block;
+    margin: auto;
+}

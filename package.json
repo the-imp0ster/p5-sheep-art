@@ -1,0 +1,14 @@
+{
+  "name": "sheepart",
+  "version": "1.0.0",
+  "description": "a p5.js program that mimics the movement of a flock of sheep",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "p5": "^1.8.0"
+  }
+}
