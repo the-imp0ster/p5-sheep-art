@@ -10,7 +10,7 @@ function setup() {
     }
 
     // make the rocks
-    rocks.push(new Rock(100, 300, 20));
+    rocks.push(new Rock(100, 300, 15));
     rocks.push(new Rock(500, 200, 10));
     rocks.push(new Rock(80, 70, 10));
 

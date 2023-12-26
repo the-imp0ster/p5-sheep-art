@@ -9,13 +9,6 @@ class Sheep {
         this.maxSpeed = 2.1;
     }
 
-    // update() {
-    //     this.position.add(this.velocity);
-    //     this.velocity.add(this.acceleration);
-    //     this.velocity.limit(this.maxSpeed);
-    //     this.acceleration.mult(0);
-    // }
-
     update(wolves) {
         if (!wolves || wolves.length === 0) return; 
 
@@ -92,7 +85,7 @@ class Sheep {
     }
 
     cohere(sheepArray) {
-        let perceptionRadius = 125;
+        let perceptionRadius = 175;
         let steering = createVector();
         let total = 0;
 
