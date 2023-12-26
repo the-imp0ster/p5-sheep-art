@@ -5,7 +5,7 @@ let wolves = [];
 function setup() {
     createCanvas(600, 600);
     // make the sheep as per for loop (40 seems to work well on 600 x 600 canvas)
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 30; i++) {
         sheepFlock.push(new Sheep(random(width), random(height)));
     }
 
@@ -36,7 +36,7 @@ function draw() {
     for (let wolf of wolves) {
         wolf.chase(sheepFlock);
         wolf.checkEdges();
-        wolf.update();
+        wolf.update(sheepFlock, rocks);
         wolf.show();
     }
 }

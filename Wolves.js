@@ -8,15 +8,30 @@ class Wolf {
         this.acceleration = createVector();
         this.maxForce = 0.1;
         // trying to play with the wolf speed vs the sheep speed
-        this.maxSpeed = 3;
+        this.maxSpeed = 2.9;
     }
 
-    update() {
+    // update() {
+    //     this.position.add(this.velocity);
+    //     this.velocity.add(this.acceleration);
+    //     this.velocity.limit(this.maxSpeed);
+    //     this.acceleration.mult(0);
+    // }
+
+
+    update(sheepArray, rocks) {
+        this.chase(sheepArray);
+        let rockAvoidance = this.avoidRocks(rocks);
+        rockAvoidance.mult(1.5);
+        this.applyForce(rockAvoidance);
+
         this.position.add(this.velocity);
         this.velocity.add(this.acceleration);
         this.velocity.limit(this.maxSpeed);
         this.acceleration.mult(0);
     }
+
+
 
     applyForce(force) {
         this.acceleration.add(force);
@@ -63,6 +78,24 @@ class Wolf {
         this.applyForce(turnForce);
     }
 
+    avoidRocks(rocks) {
+        let steer = createVector();
+        let maxAvoidanceRange = 10;
+
+        for (let rock of rocks) {
+            let distance = this.position.dist(rock.position);
+            if (distance < maxAvoidanceRange + rock.radius) {
+                let diff = p5.Vector.sub(this.position, rock.position);
+                diff.normalize();
+                // TODO need bezier curves for this and had some rough success on local branch BUT
+                // sheep stopped understanding that they were on the same z-index as the rocks wtf
+                // stronger force if closer to rock
+                diff.mult(maxAvoidanceRange / distance);
+                steer.add(diff);
+            }
+        }
+        return steer;
+    }
     
 
     show() {

@@ -47,7 +47,7 @@ class Sheep {
         let wolfAvoidance = this.avoidWolf(wolf);
 
         alignment.mult(1.0);
-        cohesion.mult(0.7);
+        cohesion.mult(0.9);
         separation.mult(2);
         rockAvoidance.mult(1.5);
         // i don't like how it behaves with two or more wolves
@@ -92,7 +92,7 @@ class Sheep {
     }
 
     cohere(sheepArray) {
-        let perceptionRadius = 90;
+        let perceptionRadius = 125;
         let steering = createVector();
         let total = 0;
 
