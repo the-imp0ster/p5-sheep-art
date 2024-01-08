@@ -40,7 +40,7 @@ class Sheep {
         let wolfAvoidance = this.avoidWolf(wolf);
 
         alignment.mult(1.0);
-        cohesion.mult(0.9);
+        cohesion.mult(1.0);
         separation.mult(2);
         rockAvoidance.mult(1.5);
         // i don't like how it behaves with two or more wolves
